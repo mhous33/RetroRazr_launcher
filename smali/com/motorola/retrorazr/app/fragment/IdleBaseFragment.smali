@@ -50,6 +50,7 @@
         "",
         "createCurrentStateObserver",
         "handleBrowserButtonClicked",
+        "handleCenterButtonClicked",
         "handleCenterSoftKeyClicked",
         "handleLeftSoftKeyClicked",
         "handleRightSoftKeyClicked",
@@ -353,6 +354,14 @@
     return-void
 .end method
 
+.method public static final synthetic access$handleCenterButtonClicked(Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->handleCenterButtonClicked()V
+
+    return-void
+.end method
+
 .method public static final synthetic access$handleCenterSoftKeyClicked(Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;)V
     .locals 0
 
@@ -557,6 +566,20 @@
     return-void
 .end method
 
+.method private final handleCenterButtonClicked()V
+    .locals 2
+
+    sget-object v0, Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;->INSTANCE:Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;
+
+    invoke-virtual {v0}, Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;->createLaunchManageApplicationsSettingsIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/motorola/retrorazr/app/fragment/IdleMainFragment;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
 .method private final handleCenterSoftKeyClicked()V
     .locals 4
 
@@ -600,15 +623,33 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    sget-object v0, Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;->INSTANCE:Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;
+#   sget-object v0, Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;->INSTANCE:Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;
 
-    invoke-virtual {p0}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->getContext()Landroid/content/Context;
+    const v0, 0x7f100034
 
-    move-result-object v1
+#   invoke-virtual {p0}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->getContext()Landroid/content/Context;
 
-    const/high16 v2, 0x7f0f0000
+    invoke-virtual {p0, v0}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;->playMedia(Landroid/content/Context;I)V
+#   move-result-object v1
+
+    move-result-object v0
+
+#   const/high16 v2, 0x7f0f0000
+
+    const-string v1, "getString(R.string.launch_play_url)"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    sget-object v1, Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;->INSTANCE:Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;
+
+#   invoke-virtual {v0, v1, v2}, Lcom/motorola/retrorazr/app/util/MediaPlayerUtil;->playMedia(Landroid/content/Context;I)V
+
+    invoke-virtual {v1, v0}, Lcom/motorola/retrorazr/app/util/LaunchAppIntentCreator;->createLaunchBrowserIntent(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

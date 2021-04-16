@@ -1,5 +1,6 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: RetroRazr.apk
+# apkFileName: RetroRazr.apk
+apkFileName: RetroRazr_launcher.apk
 compressionType: false
 doNotCompress:
 - classes.dex

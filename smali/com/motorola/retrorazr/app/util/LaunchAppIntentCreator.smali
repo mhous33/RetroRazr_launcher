@@ -41,6 +41,7 @@
         "createLaunchMessagingIntent",
         "createLaunchRazrActivityIntent",
         "createLaunchSettingsIntent",
+        "createLaunchManageApplicationsSettingsIntent",
         "createLaunchSoundSettingsIntent",
         "createSendSmsIntent",
         "body",
@@ -330,6 +331,20 @@
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public final createLaunchManageApplicationsSettingsIntent()Landroid/content/Intent;
+    .locals 2
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.MANAGE_APPLICATIONS_SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 

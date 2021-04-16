@@ -118,6 +118,17 @@
     goto :goto_0
 
     :cond_3
+    instance-of v0, p1, Lcom/motorola/retrorazr/app/statemachine/RazrAction$CenterButtonClick;
+
+    if-eqz v0, :cond_4
+
+    iget-object p1, p0, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment$createActionObserver$1;->this$0:Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;
+
+    invoke-static {p1}, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;->access$handleCenterButtonClicked(Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;)V
+
+    goto :goto_0
+
+    :cond_4
     iget-object v0, p0, Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment$createActionObserver$1;->this$0:Lcom/motorola/retrorazr/app/fragment/IdleBaseFragment;
 
     const-string v1, "it"

@@ -51,7 +51,9 @@
     <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
-    <string name="launch_browser_url">http://www.motorola.com</string>
+    <string name="launch_play_url">https://play.google.com/store</string>
+    <!--string name="launch_browser_url">http://www.motorola.com</string-->
+    <string name="launch_browser_url">https://www.google.com</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="network_name">V3 Wireless</string>
     <string name="password_toggle_content_description">Show password</string>
