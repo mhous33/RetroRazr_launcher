@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_messaging">MENSAJES</string>
+    <string name="action_recent">RECIENTES</string>
+    <string name="action_save">GUARDAR</string>
+    <string name="app_name">Razr retro</string>
+    <string name="dialing_title">Insertando:</string>
+</resources>

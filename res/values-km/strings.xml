@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">រកមើល​ទៅ​ដើម</string>
+    <string name="abc_action_bar_up_description">រកមើល​ឡើងលើ</string>
+    <string name="abc_action_menu_overflow_description">ជម្រើស​ច្រើន​ទៀត</string>
+    <string name="abc_action_mode_done">រួចរាល់</string>
+    <string name="abc_activity_chooser_view_see_all">មើល​ទាំងអស់</string>
+    <string name="abc_activitychooserview_choose_application">ជ្រើស​កម្មវិធី​​</string>
+    <string name="abc_capital_off">បិទ</string>
+    <string name="abc_capital_on">បើក</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">ស្វែងរក…</string>
+    <string name="abc_searchview_description_clear">សម្អាត​សំណួរ</string>
+    <string name="abc_searchview_description_query">ស្វែងរក​សំណួរ</string>
+    <string name="abc_searchview_description_search">ស្វែងរក</string>
+    <string name="abc_searchview_description_submit">ដាក់​​​ស្នើ​សំណួរ</string>
+    <string name="abc_searchview_description_voice">ការស្វែងរក​សំឡេង</string>
+    <string name="abc_shareactionprovider_share_with">ចែករំលែក​ជាមួយ</string>
+    <string name="abc_shareactionprovider_share_with_application">ចែក​រំលែក​ជា​មួយ %s</string>
+    <string name="abc_toolbar_collapse_description">បង្រួម</string>
+    <string name="action_messaging">ការផ្ញើសារ</string>
+    <string name="action_recent">ថ្មីៗ</string>
+    <string name="action_save">រក្សាទុក</string>
+    <string name="app_name">Retro Razr</string>
+    <string name="dialing_title">ការបញ្ចូល៖</string>
+    <string name="search_menu_title">ស្វែងរក</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

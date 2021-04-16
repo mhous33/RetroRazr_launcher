@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_messaging">သတင်းစကား</string>
+    <string name="action_recent">RECENT</string>
+    <string name="action_save">ကိုကာကွယ်ဖို့</string>
+    <string name="app_name">Retro Razr</string>
+    <string name="dialing_title">ထည့်သွင်းခြင်း:</string>
+</resources>

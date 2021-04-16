@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:razr="http://schemas.android.com/apk/res-auto">
+    <item android:drawable="@drawable/softkey_highlight_center_notext" razr:state_no_soft_key_pressed="true" />
+    <item android:drawable="@drawable/softkey_highlight_center_notext" razr:state_center_soft_key_pressed="true" />
+    <item android:drawable="@drawable/softkey_highlight_left_notext" razr:state_left_soft_key_pressed="true" />
+    <item android:drawable="@drawable/softkey_highlight_right_notext" razr:state_right_soft_key_pressed="true" />
+    <item android:drawable="@drawable/softkey_normal_notext" />
+</selector>
