@@ -66,12 +66,11 @@ function cursor {
         local suffix=l ;;
     on)
         local suffix=h ;;
+    zero)
+        echo -ne "\033[0;0H"
+        return ;;
     esac
     echo -ne "\033[?25$suffix"
-}
-
-function cursor_zero {
-    echo -ne "\033[0;0H"
 }
 
 function customize_ui {
@@ -90,8 +89,6 @@ function customize_ui {
 }
 
 function menu {
-    set_defaults
-    refresh
     case $option_mode in
     Default)
         option_menu=$(gum choose --header "Default menu" --selected "$option_menu" \
@@ -103,6 +100,8 @@ function menu {
     case $option_menu in
     Mode)
         option_mode=$(gum choose --header Mode --selected "$option_mode" Default Custom)
+        set_vars
+        refresh
         menu ;;
     Wallpaper|Skin)
         customize_ui "$option_menu" ;;
@@ -112,6 +111,7 @@ function menu {
     "Device height")
         device_height=$(gum input \
         --placeholder "$device_height" --char-limit 4 --header "Device height (px)")
+        set_vars
         menu ;;
     Build)
         gum confirm "$(summary)" && build
@@ -125,22 +125,22 @@ function menu {
 
 function refresh {
     cursor off
-    cursor_zero
+    cursor zero
     ui
     cursor on
 }
 
-function set_defaults {
+function set_vars {
     [ -z "$option_mode" ] && option_mode=Default
     case $option_mode in
     Default)
         wallpaper=Default
-        skin=Default
-        shortcuts=Visible ;;
+        skin=Default ;;
     Custom)
         [ "$wallpaper" = Default ] && wallpaper=Moto
         [ "$skin" = Default ] && skin=Moto ;;
     esac
+    [ -z "$shortcuts" ] && shortcuts=Visible
     [[ $device_height =~ ^[0-9]{4}$ ]] || device_height=2142
 }
 
@@ -190,4 +190,6 @@ export GUM_SPIN_SPINNER=points
 export GUM_SPIN_SPINNER_FOREGROUND=$color
 alternate_buffer on
 clear
+set_vars
+ui
 menu
