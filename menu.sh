@@ -151,15 +151,25 @@ function summary {
 }
 
 function summary_keys {
-    gum style "$(printf \
-    "Wallpaper: \nSkin: \nShortcuts: \nDevice height: ")" \
-    --align left
+    case $option_mode in
+    Default)
+        gum style "$(printf "Device height: ")" --align left ;;
+    Custom)
+        gum style "$(printf \
+        "Wallpaper: \nSkin: \nShortcuts: \nDevice height: ")" \
+        --align left ;;
+    esac
 }
 
 function summary_values {
-    gum style "$(printf "%s\n %s\n %s\n %s" \
-    "$wallpaper" "$skin" "$shortcuts" "${device_height}px")" \
-    --align right
+    case $option_mode in
+    Default)
+        gum style "$(printf "%s" "${device_height}px")" --align right ;;
+    Custom)
+        gum style "$(printf "%s\n %s\n %s\n %s" \
+        "$wallpaper" "$skin" "$shortcuts" "${device_height}px")" \
+        --align right ;;
+    esac
 }
 
 function title {
