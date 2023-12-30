@@ -4,11 +4,10 @@ function alternate_buffer {
     local state=$1
     case $state in
     off)
-        local suffix=l ;;
+        echo -ne "\033[?1049l" ;;
     on)
-        local suffix=h ;;
+        echo -ne "\033[?1049h" ;;
     esac
-    echo -ne "\033[?1049$suffix"
 }
 
 function build {
@@ -63,14 +62,12 @@ function cursor {
     local state=$1
     case $state in
     off)
-        local suffix=l ;;
+        echo -ne "\033[?25l" ;;
     on)
-        local suffix=h ;;
+        echo -ne "\033[?25h" ;;
     zero)
-        echo -ne "\033[0;0H"
-        return ;;
+        echo -ne "\033[0;0H" ;;
     esac
-    echo -ne "\033[?25$suffix"
 }
 
 function customize_ui {
