@@ -7,7 +7,7 @@
 * UI scaled to device height
 * Installable alongside original RetroRazr app
 ### Optional
-* Original RAZR V3 UI enhanced with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
+* Original RAZR V3 / V3i UI enhanced with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
 * Original powerup / powerdown animation & sounds
 * Wallpaper customizable
 * Skin customizable
@@ -29,19 +29,44 @@ cd RetroRazr_launcher
 ```
 * Choose mode
     * Default
-    * Custom
+    * V3
+    * V3i
 * Customize wallpaper
+    * Amour
+    * Bamboo
     * Caribbean
+    * Cosmic
+    * Desert
+    * EasternSky
     * Food
+    * Fusion
     * HigherPlane
+    * Hightide
+    * Indium
+    * Landmark
+    * Metal
     * Moto
+    * Moto2
     * Pacific
+    * Perspective
+    * Radiance
+    * Radioactive
     * Scarlet
+    * Seashore
+    * Secret
+    * SharpEdge
     * Silver
+    * SkyBlue
+    * Skyscraper
+    * Spiral
+    * Tao
+    * Tux
 * Customize skin
+    * Indium
     * Moto
     * Scarlet
     * Silver
+    * Tux
 * Set homescreen icon visibility
 * Set device height
 * Build
