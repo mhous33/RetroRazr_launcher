@@ -81,9 +81,9 @@ function customize_ui {
             Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
         V3i)
             wallpaper=$(gum choose --header "$item" --selected "$wallpaper" \
-            Amour Bamboo Cosmic Desert EasternSky Fusion Hightide \
-            Indium Landmark Metal Moto2 Perspective Radiance Radioactive \
-            Seashore Secret SharpEdge SkyBlue Skyscraper Spiral Tao Tux) ;;
+            Amour Bamboo Cosmic Desert EasternSky Fusion Hightide Indium \
+            Landmark Metal Moto Moto2 Perspective Radiance Radioactive Scarlet \
+            Seashore Secret SharpEdge Silver SkyBlue Skyscraper Spiral Tao Tux) ;;
         esac ;;
     Skin)
         case $device in
