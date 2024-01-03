@@ -71,33 +71,31 @@ function cursor {
 }
 
 function customize_ui {
-    local item=$1
-    local device=$2
-    case $item in
+    case $option_menu in
     Wallpaper)
-        case $device in
+        case $option_mode in
         V3)
-            wallpaper=$(gum choose --header "$item" --selected "$wallpaper" \
+            wallpaper=$(gum choose --header "$option_menu" --selected "$wallpaper" \
             Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
         V3i)
-            wallpaper=$(gum choose --header "$item" --selected "$wallpaper" \
+            wallpaper=$(gum choose --header "$option_menu" --selected "$wallpaper" \
             Amour Bamboo Cosmic Desert EasternSky Fusion Hightide Indium \
             Landmark Metal Moto Moto2 Perspective Radiance Radioactive Scarlet \
             Seashore Secret SharpEdge Silver SkyBlue Skyscraper Spiral Tao Tux) ;;
         esac ;;
     Skin)
-        case $device in
+        case $option_mode in
         V3)
-            skin=$(gum choose --header "$item" --selected "$skin" \
+            skin=$(gum choose --header "$option_menu" --selected "$skin" \
             Moto Scarlet Silver) ;;
         V3i)
-            skin=$(gum choose --header "$item" --selected "$skin" \
+            skin=$(gum choose --header "$option_menu" --selected "$skin" \
             Indium Moto Scarlet Silver Tux) ;;
         esac ;;
     esac
     refresh
     gum confirm "$(gum style "Save" --align center --width $COLUMNS --bold)" && menu
-    customize_ui "$item" "$device"
+    customize_ui
 }
 
 function menu {
@@ -116,7 +114,7 @@ function menu {
         refresh
         menu ;;
     Wallpaper|Skin)
-        customize_ui "$option_menu" "$option_mode" ;;
+        customize_ui ;;
     Shortcuts)
         shortcuts=$(gum choose --header "$option_menu" --selected "$shortcuts" Visible Invisible)
         menu ;;
