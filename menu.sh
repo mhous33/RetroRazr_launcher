@@ -79,9 +79,9 @@ function customize_ui {
             Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
         V3i)
             wallpaper=$(gum choose --header "$option_menu" --selected "$wallpaper" \
-            Amour Bamboo Cosmic Desert EasternSky Fusion Hightide Indium \
-            Landmark Metal Moto Moto2 Perspective Radiance Radioactive Scarlet \
-            Seashore Secret SharpEdge Silver SkyBlue Skyscraper Spiral Tao Tux) ;;
+            Amour Bamboo Cosmic Desert EasternSky Fusion Hightide \
+            Indium Landmark Metal Moto2 Perspective Radiance Radioactive \
+            Seashore Secret SharpEdge SkyBlue Skyscraper Spiral Tao Tux) ;;
         esac ;;
     Skin)
         case $option_mode in
@@ -90,7 +90,7 @@ function customize_ui {
             Moto Scarlet Silver) ;;
         V3i)
             skin=$(gum choose --header "$option_menu" --selected "$skin" \
-            Indium Moto Scarlet Silver Tux) ;;
+            Indium Moto Tux) ;;
         esac ;;
     esac
     refresh
