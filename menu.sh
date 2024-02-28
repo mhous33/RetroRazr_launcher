@@ -71,8 +71,7 @@ function cursor {
 }
 
 function customize_ui {
-    local item=$1
-    case $item in
+    case $option_menu in
     Wallpaper)
         wallpaper=$(gum choose --header Wallpaper --selected "$wallpaper" \
         Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
@@ -82,7 +81,7 @@ function customize_ui {
     esac
     refresh
     gum confirm "$(gum style "Save" --align center --width $COLUMNS --bold)" && menu
-    customize_ui "$item"
+    customize_ui
 }
 
 function menu {
@@ -101,7 +100,7 @@ function menu {
         refresh
         menu ;;
     Wallpaper|Skin)
-        customize_ui "$option_menu" ;;
+        customize_ui ;;
     Shortcuts)
         shortcuts=$(gum choose --header Shortcuts --selected "$shortcuts" Visible Invisible)
         menu ;;
