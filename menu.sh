@@ -39,7 +39,7 @@ function configure {
     Default)
         sed -i "s/RetroRazr/RetroRazr\-$version\-${device_height}px/" \
         RetroRazr/apktool.yml ;;
-    V3|V3i)
+    Custom)
         rm RetroRazr/res/drawable/center_soft_key_icon.xml
         cp -r src/res RetroRazr
         if [ "$shortcuts" = Invisible ] ; then
@@ -71,56 +71,43 @@ function cursor {
 }
 
 function customize_ui {
-    case $option_menu in
+    local item=$1
+    case $item in
     Wallpaper)
-        case $option_mode in
-        V3)
-            wallpaper=$(gum choose --header "$option_menu" --selected "$wallpaper" \
-            Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
-        V3i)
-            wallpaper=$(gum choose --header "$option_menu" --selected "$wallpaper" \
-            Amour Bamboo Cosmic Desert EasternSky Fusion Hightide \
-            Indium Landmark Metal Moto2 Perspective Radiance Radioactive \
-            Seashore Secret SharpEdge SkyBlue Skyscraper Spiral Tao Tux) ;;
-        esac ;;
+        wallpaper=$(gum choose --header Wallpaper --selected "$wallpaper" \
+        Caribbean Food HigherPlane Moto Pacific Scarlet Silver) ;;
     Skin)
-        case $option_mode in
-        V3)
-            skin=$(gum choose --header "$option_menu" --selected "$skin" \
-            Moto Scarlet Silver) ;;
-        V3i)
-            skin=$(gum choose --header "$option_menu" --selected "$skin" \
-            Indium Moto Tux) ;;
-        esac ;;
+        skin=$(gum choose --header Skin --selected "$skin" \
+        Moto Scarlet Silver) ;;
     esac
     refresh
     gum confirm "$(gum style "Save" --align center --width $COLUMNS --bold)" && menu
-    customize_ui
+    customize_ui "$item"
 }
 
 function menu {
     case $option_mode in
     Default)
-        option_menu=$(gum choose --header "$option_mode menu" --selected "$option_menu" \
+        option_menu=$(gum choose --header "Default menu" --selected "$option_menu" \
         Mode "Device height" Build Exit) ;;
-    V3|V3i)
-        option_menu=$(gum choose --header "$option_mode menu" --selected "$option_menu" \
+    Custom)
+        option_menu=$(gum choose --header "Custom menu" --selected "$option_menu" \
         Mode Wallpaper Skin Shortcuts "Device height" Build Exit) ;;
     esac
     case $option_menu in
     Mode)
-        option_mode=$(gum choose --header "$option_menu" --selected "$option_mode" Default V3 V3i)
+        option_mode=$(gum choose --header Mode --selected "$option_mode" Default Custom)
         set_vars
         refresh
         menu ;;
     Wallpaper|Skin)
-        customize_ui ;;
+        customize_ui "$option_menu" ;;
     Shortcuts)
-        shortcuts=$(gum choose --header "$option_menu" --selected "$shortcuts" Visible Invisible)
+        shortcuts=$(gum choose --header Shortcuts --selected "$shortcuts" Visible Invisible)
         menu ;;
     "Device height")
         device_height=$(gum input \
-        --placeholder "$device_height" --char-limit 4 --header "$option_menu (px)")
+        --placeholder "$device_height" --char-limit 4 --header "Device height (px)")
         set_vars
         menu ;;
     Build)
@@ -146,11 +133,8 @@ function set_vars {
     Default)
         wallpaper=Default
         skin=Default ;;
-    V3)
+    Custom)
         [ "$wallpaper" = Default ] && wallpaper=Moto
-        [ "$skin" = Default ] && skin=Moto ;;
-    V3i)
-        [ "$wallpaper" = Default ] && wallpaper=Moto2
         [ "$skin" = Default ] && skin=Moto ;;
     esac
     [ -z "$shortcuts" ] && shortcuts=Visible
@@ -167,7 +151,7 @@ function summary_keys {
     case $option_mode in
     Default)
         gum style "$(printf "Device height: ")" --align left ;;
-    V3|V3i)
+    Custom)
         gum style "$(printf \
         "Wallpaper: \nSkin: \nShortcuts: \nDevice height: ")" \
         --align left ;;
@@ -178,7 +162,7 @@ function summary_values {
     case $option_mode in
     Default)
         gum style "$(printf "%s" "${device_height}px")" --align right ;;
-    V3|V3i)
+    Custom)
         gum style "$(printf "%s\n %s\n %s\n %s" \
         "$wallpaper" "$skin" "$shortcuts" "${device_height}px")" \
         --align right ;;
